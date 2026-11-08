@@ -1,0 +1,236 @@
+/* ========================================================
+   CSS Native - Tugas Mandiri Studi Kasus Bebas (Minggu 12)
+   Tema: Toko Buku Cendekia
+   Fitur: CSS Variables, Flexbox, Grid, Responsive Design
+   ======================================================== */
+
+:root {
+    --primary-color: #1e3a8a;       /* Deep Navy */
+    --primary-hover: #172554;
+    --accent-color: #f59e0b;        /* Amber Gold */
+    --bg-page: #f1f5f9;            /* Slate light */
+    --card-bg: #ffffff;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+    --radius: 10px;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-page);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+.page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.site-header {
+    background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+    color: white;
+    padding: 24px 20px;
+    text-align: center;
+    box-shadow: var(--shadow);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.logo-circle {
+    font-size: 42px;
+    background: rgba(255, 255, 255, 0.2);
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.brand-text h1 {
+    font-size: 28px;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+}
+
+.tagline {
+    font-size: 14px;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+/* Navigasi */
+.main-nav {
+    background-color: #0f172a;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.main-nav a {
+    color: #cbd5e1;
+    text-decoration: none;
+    padding: 8px 18px;
+    margin: 2px 6px;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 6px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+    background-color: var(--accent-color);
+    color: #1e293b;
+}
+
+/* Konten Utama */
+.main-content {
+    flex: 1;
+    max-width: 960px;
+    width: 92%;
+    margin: 30px auto;
+}
+
+.card {
+    background: var(--card-bg);
+    padding: 24px 28px;
+    margin-bottom: 24px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+}
+
+.card h2 {
+    color: var(--primary-color);
+    font-size: 22px;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+}
+
+/* Grid Buku */
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 18px;
+    margin-top: 15px;
+}
+
+.book-item {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 16px;
+    position: relative;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.book-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.badge {
+    display: inline-block;
+    background-color: #e0e7ff;
+    color: #4338ca;
+    font-size: 11px;
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 12px;
+    margin-bottom: 8px;
+}
+
+.book-item h3 {
+    font-size: 16px;
+    color: #0f172a;
+    margin-bottom: 6px;
+}
+
+.book-item .author {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+}
+
+.book-item .price {
+    font-size: 15px;
+    font-weight: bold;
+    color: #047857;
+}
+
+/* Event Card */
+.event-card {
+    border-left: 5px solid var(--accent-color);
+    background-color: #fffbeb;
+}
+
+.event-card h2 {
+    border-color: #fde68a;
+    color: #92400e;
+}
+
+.event-card time {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    color: #b45309;
+    background: #fef3c7;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+
+/* Address Card */
+.contact-card {
+    border-left: 5px solid var(--primary-color);
+    background-color: #f8fafc;
+    font-style: normal;
+}
+
+.contact-card a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-card a:hover {
+    text-decoration: underline;
+}
+
+/* Footer */
+.site-footer {
+    background-color: #0f172a;
+    color: #94a3b8;
+    text-align: center;
+    padding: 20px;
+    font-size: 13px;
+    margin-top: auto;
+}
+
+.site-footer p {
+    margin: 4px 0;
+}
+
